@@ -16,7 +16,7 @@
 2. Nginx + TTRSS + RSSHub + Watchtower + 无证书 HTTP 模式
 3. Nginx + TTRSS + ACME 自动申请和续签证书并开启 HTTPS 模式
 4. Nginx + TTRSS + 无证书 HTTP 模式
-5. Nginx + FreshRSS + RSSHub + Watchtower + ACME 自动申请和续签证书并开启 HTTPS 模式
+5. Nginx + FreshRSS + RSSHub + Watchtower + ACME 自动申请和续签证书并开启 HTTPS 模式（针对性修改，优选）
 6. Nginx + FreshRSS + RSSHub + Watchtower + 无证书 HTTP 模式
 7. Nginx + FreshRSS + ACME 自动申请和续签证书并开启 HTTPS 模式
 8. Nginx + FreshRSS + 无证书 HTTP 模式
@@ -27,7 +27,7 @@
 - 服务器未占用 80/443 端口
 - 服务器已安装 docker 和 docker compose 环境 ( 未安装可参考下文简易安装指南 )
 
-> 本项目不支持已被其他服务占用 80/443 端口的服务器.请停止相关服务或更换新服务器部署使用.  
+> 本项目不支持已被其他服务占用 8443 端口的服务器.请停止相关服务或更换新服务器部署使用.  
 > 此项目最多一共会启动 10 个容器,建议 2C2G 及以上配置.  
 > 如果服务器上已有 nginx 等占用 80/443 端口的服务,同时又有部署的需求,请联系我进行付费技术支持.
 
