@@ -1,5 +1,3 @@
-version: "3"
-
 networks:
   rssforever:
 
@@ -99,8 +97,9 @@ services:
       - TZ=Asia/Shanghai
       - WATCHTOWER_CLEANUP=true
       - WATCHTOWER_SCHEDULE=0 0 10 * * *
+      - DOCKER_API_VERSION=1.44
+      - WATCHTOWER_LABEL_ENABLE=false
     restart: always
-    command: rssforever-acme-1 rssforever-watchtower-1 rssforever-rsshub-1 rssforever-redis-1 rssforever-browserless-1
     networks:
       - rssforever
 
@@ -113,3 +112,4 @@ services:
     restart: always
     network_mode: host
     command: ["sh", "-c", "/conf/start.sh"]
+
