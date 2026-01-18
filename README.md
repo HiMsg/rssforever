@@ -67,14 +67,14 @@ FreshRSS 首次访问需要设置数据库类型,选择`PostgreSQL`:
 ### 更新镜像
 本项目配置有`Watchtower`来监控部分容器的镜像更新.  
 Nginx / TTRSS / FreshRSS 的版本在`.env`文件中定义,请谨慎修改更新.  
-如需更新,建议先行备份`rssforever`目录,再执行`docker-compose down`停止服务,修改版本号后再次执行`docker-compose up -d`启动服务.
+如需更新,建议先行备份`rssforever`目录,再执行`docker compose down`停止服务,修改版本号后再次执行`docker compose up -d`启动服务.
 
 ### 更新证书
-证书每月`1`日自动更新,请执行以下命令来定时每月重启`nginx`服务刷新证书.也可每月手动执行`docker-compose restart`来重启服务.
+证书每月`1`日自动更新,请执行以下命令来定时每月重启`nginx`服务刷新证书.也可每月手动执行`docker compose restart`来重启服务.
 ```shell
 crontab -e
 # 添加以下计划任务
-0 0 2 * * docker restart rssforever-nginx-1
+0 0 2 * * /usr/bin/docker exec rssforever-nginx-1 nginx -s reload >> /tmp/nginx_cron.log 2>&1
 # 为避免时区问题,将在每月 2 号 0 点执行
 ```
 
@@ -85,7 +85,7 @@ crontab -e
 ```shell
 cd rssforever
 # 进入目录
-docker-compose down
+docker compose down
 # 停止所有服务
 # 手动将整个 rssforever 目录迁移至新服务
 ```
@@ -94,7 +94,7 @@ docker-compose down
 ```shell
 cd rssforever
 # 进入目录
-docker-compose up -d
+docker compose up -d
 # 启动
 ```
 
